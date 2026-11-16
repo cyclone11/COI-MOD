@@ -1,82 +1,92 @@
-# :pick: Automatic Terrain Designations
-One Mine — One Click.
+# ⛏️ 凯瑟的自动地形规划
 
-## :clipboard: Overview
-Kayser’s Automatic Terrain Designations is a quality-of-life mod for Captain of Industry that **generates tailored mining designations for your mine towers**. Instead of manually creating designations across complex ore deposits, the mod analyzes terrain depth and places connected mining orders that follow the contours of the deposit. **Once you play with it, you do not want to go back**.
+[English](readme.en.md)
 
-## :gear: Features
-- **Create Designations** — Scan and plan on a dedicated worker thread, then place the complete mine in one fast batch
-- **Excavation without a Mine Tower** — An off-by-default World Settings option lets unassigned excavators work Mining designations outside all tower areas using compatible global trucks
-- **Predicted collapse overlay** — An off-by-default overlay helps inspect possible collapse around live Mining designations while the game's terrain designation overlay is visible
-- **Filter ore spikes** — Correct isolated ultra-thin vanilla ore tails before they drag a mine deep into high-yield bedrock
-- **Generate Ramps** — Generate access ramps to connect new dig areas to the surface
-- **Clear Designations** — Easily clear ATD mining designations within a tower's area
-- See **Ore composition** of the designation, including Rock produced by bedrock excavation
-- Set **Mining Priority** on tower level
-- **Ore Sorting Plant exports** — Route output to compatible storages and Mine Towers, set export priority, and assign trucks
-- **Settings** to fine tune the designations
-- **Corner Designations** for manual placement
-- **Farmland preparation** for preparing flat level designations into farmable ground
+一座矿塔，一键生成采矿规划。
 
-## :zap: Quick Start Guide
-1. Select a mine tower
-2. Ensure the tower area covers a body of some resource
-3. Click **Create Designations** to generate designations
-4. Adjust settings, clear designation, and recreate until happy
-5. Watch your mining crews dig out the entire deposit
+## 简介
 
-Leave a :heart: if you found this mod useful.
+凯瑟的自动地形规划（ATD）是《工业巨头》（Captain of Industry）的体验优化模组。它会分析矿塔范围内的地形和矿层，沿着矿体轮廓自动生成连成一片的采矿规划，省去逐格标记的操作。
 
----
+## 功能
 
-## Documentation
+- **生成采矿规划**：在专用后台线程上扫描和规划，然后一次性放置整座矿区的采矿规划。
+- **无矿塔挖掘**：在世界设置中开启后，未分配的挖掘机可借助符合条件的公共卡车，在所有矿塔范围外执行采矿规划。默认关闭。
+- **坍塌预览**：打开原版地形规划图层时，可以查看现有采矿规划周围可能坍塌的区域。默认关闭。
+- **过滤矿脉尖刺**：过滤原版地图里孤立而极细的矿脉尖尾，避免为挖取少量矿石而深挖高产基岩。
+- **生成坡道**：生成通行坡道，将新开挖的区域连接到地表。
+- **清除采矿规划**：清除所选矿塔范围内由 ATD 生成的采矿规划。
+- **查看矿物组成**：估算现有规划里的采掘产物，包括从基岩中挖出的岩石。
+- **调整采矿优先级**：按矿塔设置挖掘优先级。
+- **矿石分选厂外运**：将产物运往兼容的仓储设施或矿塔，并设置外运优先级和分配的卡车。
+- **调整规划参数**：根据地形和采矿目标微调各项设置。
+- **手动放置拐角规划**：使用地形工具绘制拐角。
+- **农地准备**：在平坦的整平规划区域准备可用于建造农场的地面。
 
-### Player guides
-- [Excavation without a Mine Tower](docs/player/default-mine.md)
-- [Corner Designations](docs/player/corner-designations.md)
-- [Mining Designations](docs/player/mining-designations.md)
-- [Farmland preparation](docs/player/farming-designations.md)
+## 快速上手
 
-### Modder/API docs
-- [Mining Designations API](docs/api/mining-designations.md)
-- [Farming API](docs/api/farming.md)
+1. 选中一座矿业控制塔。
+2. 确保矿塔范围覆盖你想开采的矿体。
+3. 点击 **生成采矿规划**。
+4. 如需调整结果，修改设置，清除旧规划，再重新生成。
+5. 让采矿车队按规划开挖矿体。
 
-### Developer notes
-- [Mining Designations Architecture](docs/dev/done/mining-designations.md)
-- [Corner Designations Architecture](docs/dev/done/corner-designations.md)
-- [Farmland preparation architecture](docs/dev/done/farming-designations.md)
-- [Runtime State and Save-Detached Attachments](docs/dev/done/runtime-state.md)
+如果这个模组帮到了你，欢迎点个 ❤️。
 
-## Installation
+## 文档
 
-Update 4.3 compatibility remains **technical and experimental**, with extensive gameplay testing still outstanding. On Update 4.3, use **Build 625 or newer**. This version requires Update 4.3.
-- Download the latest version of the mod from GitHub Releases
-- Extract the mod folder into your Captain of Industry mods directory (`%AppData%\Captain of Industry\Mods`)
-- Enable the mod when loading or starting a new game
-- Can be safely removed from saves
-- Removing ATD while unassigned excavation is active may discard transient cargo in excavator buckets or trucks
-- Works with other mods that don't conflict with mining tower inspector
-- Requires Captain of Industry `0.8.5` or newer; older versions may work but are not supported or tested.
+### 玩家指南
 
-## Build from source
-- Install the .NET SDK with .NET Framework 4.8 targeting support
-- Make sure Captain of Industry is installed, or set `CAPTAIN_INDUSTRY_MANAGED_PATH` to the game's `Captain of Industry_Data\Managed` directory
-- Run `.\build.ps1 -Configuration Release`
-- The release zip is created in the project root
+- [无矿塔挖掘](docs/player/default-mine.md)
+- [拐角规划](docs/player/corner-designations.md)
+- [采矿规划](docs/player/mining-designations.md)
+- [农地准备](docs/player/farming-designations.md)
 
-## License
-MIT. See [LICENSE](LICENSE).
+### 模组开发与 API
 
-## Attribution and trademarks
+- [采矿规划 API](docs/api/mining-designations.md)
+- [农地准备 API](docs/api/farming.md)
 
-Auto Terrain Designations is an unofficial, community-made mod for Captain of Industry.
+### 开发说明
 
-Captain of Industry, MaFi Games, and related names, trademarks, game code, and assets are the property of MaFi Games. This mod is not affiliated with, endorsed by, or sponsored by MaFi Games.
+- [采矿规划架构](docs/dev/done/mining-designations.md)
+- [拐角规划架构](docs/dev/done/corner-designations.md)
+- [农地准备架构](docs/dev/done/farming-designations.md)
+- [运行时状态与存档隔离](docs/dev/done/runtime-state.md)
 
-This repository is intended to contain only original mod code and configuration, licensed under the MIT License. It does not intentionally include Captain of Industry game code, game assets, or other MaFi Games intellectual property. If any such material is found to have been included by mistake, I intend to correct it promptly upon discovery or notice.
+## 安装
 
-## Credits
-@moriarty8501 for encouragement, testing, and general support
+当前版本需要《工业巨头》更新 **4.3（0.8.8，Build 625 或更新）**。对更新 4.3 的兼容性仍处于技术验证阶段，尚待更多实机测试。
 
-## User Testimonials
-"THIS IS THE BEST DAM MOD EVER >:O"
+- 从 GitHub Releases 下载模组的发行包。
+- 将模组目录解压到游戏的模组目录（`%AppData%\Captain of Industry\Mods`）。
+- 在加载存档或开启新游戏时启用模组。
+- ATD 可以从现有存档中移除。在无矿塔挖掘启用期间卸载 ATD，挖掘机铲斗或卡车里的临时货物可能丢失。
+- 可以与其他兼容矿塔检查器改动的模组一起使用。
+
+## 从源码构建
+
+1. 安装支持以 .NET Framework 4.8 为目标框架的 .NET SDK。
+2. 安装《工业巨头》。如果游戏不在默认位置，将 `CAPTAIN_INDUSTRY_MANAGED_PATH` 设为游戏的 `Captain of Industry_Data\Managed` 目录。
+3. 在项目根目录运行 `.\build.ps1 -Configuration Release`。
+4. 构建完成后，发行 ZIP 会生成在项目根目录。
+
+## 许可证
+
+本项目采用 MIT 许可证。详见 [LICENSE](LICENSE)。
+
+## 归属与商标
+
+ATD 是社区为《工业巨头》制作的非官方模组。
+
+《工业巨头》（Captain of Industry）、MaFi Games 及有关名称、商标、游戏代码和资源均归 MaFi Games 所有。MaFi Games 与本模组没有关联，也未为本模组背书或提供赞助。
+
+本仓库旨在收录按 MIT 许可发布的原创模组代码和配置。若发现误收了《工业巨头》的游戏代码、游戏资源或 MaFi Games 的其他知识产权内容，作者会在发现或收到通知后尽快更正。
+
+## 致谢
+
+感谢 @moriarty8501 的鼓励、测试和支持。
+
+## 玩家评价
+
+> 「这是史上最棒的模组！>:O」
