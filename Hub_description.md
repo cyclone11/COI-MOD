@@ -1,62 +1,51 @@
-# ![ChatGPT Image Aug 1, 2026, 05_03_23 PM.png](/content-images/bf0410e2c3608fbafe3e7c7b12c73317c1b11227874b5825cf45ed218fe36bbb/ChatGPTImageAug1202605_03_23PM.png)
+![凯瑟的自动地形规划中文版横幅](images/atd-banner-zh.png)
 
-# ⛏️ Automatic Terrain Designations
+# ⛏️ 自动地形规划
 
-*One Mine, One Click — Once You Plop, You Can’t Stop.*
+*一矿一键，落子就停不下来。*
 
-## 📋 Overview
+## 概览
 
-Kayser’s Automatic Terrain Designations (ATD) is a Quality of Life mod for Captain of Industry that **generates tailored mining designations for your mine towers**. Instead of manually creating designations across complex ore deposits, this mod analyzes terrain depth and automatically creates designations that follow the contours of your ore bodies, relieving you of the chore of placing and continually maintaining manual designations.
+Kayser 的自动地形标记（ATD）是《工业巨头》的一款体验优化（QoL）mod，能**为你的矿塔自动生成贴合矿体的采矿标记**。你不必再在结构复杂的矿床上手动一格一格地画标记——它会分析地形深度，沿着矿体的轮廓自动生成标记，省去手动放置、并不断补画的麻烦。
 
-Related add-on features include access ramps, ore composition analysis, tower level mining priority, area debris clearing designations, manual corner designations, and automated farmland preparation.
+相关的附加功能包括：通道坡道、矿石构成分析、按矿塔设置挖掘优先级、区域杂物清理标记、手动转角标记，以及农田自动化整备。
 
-All tower settings are persisted in the vanilla save file. The mod can be added and removed from games at any time. 100% open source.
+所有矿塔设置都保存在原版存档中。该 mod 可随时加入或移出存档。100% 开源。
 
-Mine away!
+开矿愉快！
 
-## ⚙️ Feature List
+## 功能
 
-- **Create Designations** — Instantly designate all mineable ore within a mine tower's area
-- **Generate Ramps** — Generate access ramps to connect new dig areas to the surface
-- **Clear Designations** — Easily cleanup all designations within a tower's area
-- **Ore Composition** — See the deposits’ ore composition
-- **Mining Priority** — Set mining priority on tower level
-- **Clear Debris** — Designate boulders and bushes in the tower area to be cleared
-- **Corner Designations** — Create designations with smooth, rounded corners
-- **Farmland Preparation** — Convert any area into fertile farmland with a single designation
+- **生成采矿规划**：默认在后台线程扫描和规划，再一次提交完整方案。可在世界设置中让新任务改用游戏线程。
+- **无矿塔挖掘**：可让未分配的挖掘机在矿塔范围外执行采矿规划。它们会调用符合条件的公共卡车，界面仍显示为未分配。默认关闭。
+- **坍塌预览**：打开地形规划图层时，可查看现有采矿规划周边的预测坍塌范围。默认关闭。
+- **过滤矿脉尖刺**：忽略原版矿脉中孤立而极细的尖刺，避免为少量矿石挖入大量基岩。
+- **自动通路**：可生成坡道和带转弯的车辆通路，连接较深的作业区。
+- **矿物组成**：估算当前采矿规划中的产物，包括挖掘基岩得到的岩石。
+- **矿石分选厂外运**：设置兼容的外运路线、优先级和分配的卡车。
+- **农地准备**：协助整平地面、填入表土，为建造农场做准备。
+- **拐角规划**：在地形工具栏中手动放置外角、内角和平面拐角。
 
-## ⚡ Quick Start Guide
+## 快速上手
 
-1. Select a mine tower
-2. Ensure the tower area covers a body of some resource
-3. Click **’Create Designations’** to generate designations
-4. If not happy: clear designations, adjust settings, and recreate
-5. Watch your mining crews dig out the entire deposit
+1. 选中一座矿业控制塔。
+2. 按需选择矿石筛选条件并调整矿塔设置。
+3. 点击 **生成采矿规划**，扫描地形并放置规划。
+4. 需要时，在模组的世界设置里启用无矿塔挖掘或坍塌预览。
+5. 点击垃圾桶按钮，清除该塔生成的采矿规划。
 
-Happy mining!
+需要《Captain of Industry》更新 4.3（0.8.8），内部版本 625 或更高。
 
-PS. Leave a 👍 or a ⭐️ if you found this mod useful.
+模组可加入或移出现有存档。如果移除时无矿塔挖掘仍在运行，挖掘机铲斗或卡车里的临时货物可能丢失。
 
-## User Interface
+## 游戏截图
 
-![image.png](/content-images/6a163b2490b58242716c5cb752bd79f20010b349e7379e732de75221c6d922a3/image.png)
+![矿塔面板](https://cdn.coigame.com/content-images/6a163b2490b58242716c5cb752bd79f20010b349e7379e732de75221c6d922a3/image.png?size=5)
 
-*The Mining control tower’s user interface, modified by ATD. Tooltips provide detailed explanations.*
+![一键生成采矿规划](https://cdn.coigame.com/content-images/3f41494ce10ad35a656b8e2e7dd123a3103a6776d2b321a750669581b003b044/image.png?size=5)
 
-## Screenshots
+![矿区开挖完成](https://cdn.coigame.com/content-images/a0997d7fab775c43c4a570b8315c89e9bd9e0513fcea4fc63c08b3e50ec6a79a/image.png?size=5)
 
-![image.png](/content-images/3f41494ce10ad35a656b8e2e7dd123a3103a6776d2b321a750669581b003b044/image.png)
+![拐角规划工具栏](https://cdn.coigame.com/content-images/111cee97faf31168bf46bb5daf4b83e39f5fc49b1a67f55fe935e594840aa306/image.png?size=5)
 
-*Entire deposits designated through a single click.*
-
-![image.png](/content-images/a0997d7fab775c43c4a570b8315c89e9bd9e0513fcea4fc63c08b3e50ec6a79a/image.png)
-
-*Entire deposit dug out with surgical precision.*
-
-![image.png](/content-images/387110dae50968b187eee298630af077574e4ef713e056036985f5acc6febace/image.png)
-
-*Manual corner designations toolbar.*
-
-![image.png](/content-images/9eeea6d2981ef065349816ec0b9b8acf77dc57f3aef4e6647a91b62a5a9c2c2f/image.png)
-
-*Manual corner designations create smooth, connected surfaces in 3D.*
+![三维拐角规划](https://cdn.coigame.com/content-images/9eeea6d2981ef065349816ec0b9b8acf77dc57f3aef4e6647a91b62a5a9c2c2f/image.png?size=5)

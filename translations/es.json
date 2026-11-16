@@ -838,5 +838,245 @@
   [
     "AutoTerrainDesignations.OrderConstructionShortcutHint",
     "Mayús + Alt + clic para solicitar un nuevo {0} para {2} en {1}"
+  ],
+  [
+    "AutoTerrainDesignations.ModVersionMarker",
+    "Kayser’s AutoTerrainDesignations v{0}"
+  ],
+  [
+    "AutoTerrainDesignations.Kb_Atd_CornerDesignationMode__label",
+    "Corner designations mode"
+  ],
+  [
+    "AutoTerrainDesignations.Kb_Atd_CornerDesignationMode__tooltip",
+    "Enters and toggles corner designation mode"
+  ],
+  [
+    "AutoTerrainDesignations.ExcavatorFallbackName",
+    "excavator"
+  ],
+  [
+    "AutoTerrainDesignations.AccessAnalysisInProgress",
+    "[ATD] Terrain analysis in progress"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressHide",
+    "Hide"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressCancel",
+    "Cancel"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressAbortReplay",
+    "Abort replay capture"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressStopMining",
+    "Stop interactive mining access"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressStopTower",
+    "Stop planned tower access"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressStopFarming",
+    "Stop automatic farming access"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressStopConstruction",
+    "Stop construction access"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressStop",
+    "Stop access planning"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressFarmingFill",
+    "farming filling access"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressFarmingPrep",
+    "farming preparation access"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressMining",
+    "interactive mining access"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressTower",
+    "planned tower access"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressConstruction",
+    "construction leveling access"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressTerrain",
+    "terrain access"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressSummary",
+    "[ATD] {0}; finding {1}"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressCluster",
+    "[ATD] Finding path {0}/{1}"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressReplayStats",
+    "Background recording · abort keeps placed terrain work"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressWorkerStats",
+    "visited {0:N0}/{1:N0} · queue {2:N0} · worker elapsed {3:0.0}/{4}s"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressFrameStats",
+    "visited {0:N0}/{1:N0} · queue {2:N0} · budget {3} ms/frame · processing {4:0.0}/{5}s"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressLegacyStats",
+    "visited {0:N0}/{1:N0} · queue {2:N0} · {3}/{4}s"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseRecording",
+    "Recording replay"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseRecordingPercent",
+    "Recording replay ({0})"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseCancelling",
+    "Cancelling replay capture"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePreparing",
+    "Preparing"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseCapturingTerrain",
+    "Capturing terrain"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseCapturingMine",
+    "Capturing mine terrain"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseCapturingSafety",
+    "Capturing mine safety footprint"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePlanningMine",
+    "Planning mine"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseProjecting",
+    "Projecting designations"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseBuildingNavigation",
+    "Building navigation"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseFinalizingSnapshot",
+    "Finalizing snapshot"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseGroundRoutesV1",
+    "Building V1 ground routes"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseGoalPotentialV1",
+    "Building V1 goal potential"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseIndexingOccupied",
+    "Indexing occupied terrain"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseProjectingFixedV2",
+    "Projecting fixed V2 ground"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseFixedNavigationV2",
+    "Building V2 fixed navigation"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseConstructingSnapshot",
+    "Constructing snapshot"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePreviousWorker",
+    "Waiting for previous worker job to stop"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePreparingRequest",
+    "Preparing search request"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePreparingSession",
+    "Preparing search session"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePreparingWorkspace",
+    "Preparing search workspace"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseEvaluatingLegacy",
+    "Evaluating legacy access candidates"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseSearching",
+    "Searching"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseCollectingGoals",
+    "Collecting search goals"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseFinalizingSession",
+    "Finalizing search session"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseSessionReady",
+    "Search session ready"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseBuildingGoalIndex",
+    "Building goal distance index"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseClassifyingCleanupV2",
+    "Classifying V2 ground cleanup"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseGroundComponentsV2",
+    "Building V2 ground components"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseGroundPotentialV2",
+    "Building V2 ground potential"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseFrontierV2",
+    "V2 frontier"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseGroundSuffix",
+    "Ground suffix"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseHandoffs",
+    "Handoff entries"
+  ],
+  [
+    "AutoTerrainDesignations.OreAmountThousands",
+    "{0}k"
+  ],
+  [
+    "AutoTerrainDesignations.OreAmountMillions",
+    "{0}M"
   ]
 ]

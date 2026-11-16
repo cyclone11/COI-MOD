@@ -66,7 +66,7 @@ public sealed class AutoTerrainDesignationsMod : IMod, IDisposable
     private IModStateJsonStore? m_oreSorterExportStateStore;
     private IEntitiesManager? m_entitiesManager;
 
-    public string Name => "Auto Terrain Designations";
+    public string Name => "凯瑟的自动地形规划";
 
     public int Version => 1;
 
@@ -78,7 +78,7 @@ public sealed class AutoTerrainDesignationsMod : IMod, IDisposable
 
     public static string ModVersion { get; private set; } = "?";
 
-    public static string ModMarker => $"Kayser's AutoTerrainDesignations v{ModVersion}";
+    public static string ModMarker => string.Format(AtdLocalization.ModVersionMarker.TranslatedString, ModVersion);
 
     /// <summary>Returns <paramref name="text"/> with the mod sign-off appended, for use in tooltips.</summary>
 public static string Tt(string text) => text;
@@ -139,8 +139,9 @@ public static string Tt(string text) => text;
         SetBottomFlatteningEnabled(true);
         SetBottomFlatteningStrength(5);
         SetMinCorridorClearance(2);
-        SetTerrainDesignationsPanelCollapsed(false);
-        SetOreCompositionPanelCollapsed(false);
+        // 三个面板统一默认折叠，避免 ATD 面板挤压原版矿塔检查器的内容。
+        SetTerrainDesignationsPanelCollapsed(true);
+        SetOreCompositionPanelCollapsed(true);
         SetFarmingPanelCollapsed(true);
         SetExcavatorCompletionNotificationsEnabled(true);
         SetRampNotificationsEnabled(true);
@@ -284,7 +285,8 @@ public static string Tt(string text) => text;
     }
 
     /// <summary>Default collapsed state for the Mining designations inspector panel.</summary>
-    public static bool TerrainDesignationsPanelCollapsed { get; private set; } = false;
+    // 默认折叠（原为 false）：避免 ATD 的三个面板把原版段落挤下去。
+    public static bool TerrainDesignationsPanelCollapsed { get; private set; } = true;
 
     public static void SetTerrainDesignationsPanelCollapsed(bool value)
     {
@@ -292,7 +294,8 @@ public static string Tt(string text) => text;
     }
 
     /// <summary>Default collapsed state for the Ore composition inspector panel.</summary>
-    public static bool OreCompositionPanelCollapsed { get; private set; } = false;
+    // 默认折叠（原为 false）：这是 ATD 里最高的面板，展开最占地方。
+    public static bool OreCompositionPanelCollapsed { get; private set; } = true;
 
     public static void SetOreCompositionPanelCollapsed(bool value)
     {

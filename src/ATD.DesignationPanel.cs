@@ -498,8 +498,8 @@ namespace AutoTerrainDesignations
         {
             switch (mode)
             {
-                case AccessVehicleClearanceMode.Off: return new LocStrFormatted("OFF");
-                case AccessVehicleClearanceMode.Auto: return new LocStrFormatted("AUTO");
+                case AccessVehicleClearanceMode.Off: return AtdLocalization.LevelOff.AsFormatted;
+                case AccessVehicleClearanceMode.Auto: return AtdLocalization.DesigOreFilterAuto.AsFormatted;
                 case AccessVehicleClearanceMode.T1: return new LocStrFormatted("T1");
                 case AccessVehicleClearanceMode.T2: return new LocStrFormatted("T2");
                 case AccessVehicleClearanceMode.T3: return new LocStrFormatted("T3");

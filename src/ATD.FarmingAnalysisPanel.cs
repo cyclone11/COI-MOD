@@ -156,7 +156,7 @@ namespace AutoTerrainDesignations
             }
         }
 
-        internal static void Inject(Column mainBody, PropertyInfo entityProp, object inspector)
+        internal static void Inject(Column atdPanels, PropertyInfo entityProp, object inspector)
         {
             try
             {
@@ -283,7 +283,7 @@ namespace AutoTerrainDesignations
                 };
 
                 panel.BodyAdd(contentCol);
-                mainBody.InsertAt(2, panel);
+                atdPanels.Add(panel);
             }
             catch (Exception ex)
             {

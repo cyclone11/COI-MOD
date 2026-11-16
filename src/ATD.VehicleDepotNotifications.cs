@@ -62,7 +62,7 @@ public static partial class AutoDepthDesignation
             if (!(__instance is IObjectWithTitle objectWithTitle))
                 return;
 
-            string vehicleTypeName = vehicle.Prototype?.Strings.Name.TranslatedString ?? "excavator";
+            string vehicleTypeName = vehicle.Prototype?.Strings.Name.TranslatedString ?? AtdLocalization.ExcavatorFallbackName.TranslatedString;
             AddExcavatorCompletedNotification(objectWithTitle, vehicleTypeName);
         }
         catch (Exception ex)

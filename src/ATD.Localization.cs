@@ -37,6 +37,187 @@ namespace AutoTerrainDesignations
             new LocStrFormatted($"{AutoTerrainDesignationsMod.ModMarker}\n\n{AutoTerrainDesignationsMod.Tt(s.TranslatedString)}");
 
         // ------------------------------------------------------------------ //
+        public static LocStr OreAmountThousands =
+            Loc.Str("AutoTerrainDesignations.OreAmountThousands", "{0}k", "Abbreviated ore amount scaled to thousands.");
+
+        public static LocStr OreAmountMillions =
+            Loc.Str("AutoTerrainDesignations.OreAmountMillions", "{0}M", "Abbreviated ore amount scaled to millions.");
+
+        public static LocStr ModVersionMarker =
+            Loc.Str("AutoTerrainDesignations.ModVersionMarker", "Kayser’s AutoTerrainDesignations v{0}", "Mod signature in inspector tooltips. {0} is the mod version.");
+
+        public static LocStr Kb_Atd_CornerDesignationMode__label =
+            Loc.Str("AutoTerrainDesignations.Kb_Atd_CornerDesignationMode__label", "Corner designations mode", "Name of the corner designation shortcut.");
+
+        public static LocStr Kb_Atd_CornerDesignationMode__tooltip =
+            Loc.Str("AutoTerrainDesignations.Kb_Atd_CornerDesignationMode__tooltip", "Enters and toggles corner designation mode", "Description of the corner designation shortcut.");
+
+        public static LocStr ExcavatorFallbackName =
+            Loc.Str("AutoTerrainDesignations.ExcavatorFallbackName", "excavator", "Vehicle type used when its localized name is unavailable.");
+
+        public static LocStr AccessAnalysisInProgress =
+            Loc.Str("AutoTerrainDesignations.AccessAnalysisInProgress", "[ATD] Terrain analysis in progress", "Title of the terrain analysis progress toast.");
+
+        public static LocStr AccessProgressHide =
+            Loc.Str("AutoTerrainDesignations.AccessProgressHide", "Hide", "Button to hide the progress toast while work continues.");
+
+        public static LocStr AccessProgressCancel =
+            Loc.Str("AutoTerrainDesignations.AccessProgressCancel", "Cancel", "Button to cancel terrain analysis.");
+
+        public static LocStr AccessProgressAbortReplay =
+            Loc.Str("AutoTerrainDesignations.AccessProgressAbortReplay", "Abort replay capture", "Button to stop recording a replay.");
+
+        public static LocStr AccessProgressStopMining =
+            Loc.Str("AutoTerrainDesignations.AccessProgressStopMining", "Stop interactive mining access", "Button to stop a player-requested mining access task.");
+
+        public static LocStr AccessProgressStopTower =
+            Loc.Str("AutoTerrainDesignations.AccessProgressStopTower", "Stop planned tower access", "Button to stop access work for a planned tower.");
+
+        public static LocStr AccessProgressStopFarming =
+            Loc.Str("AutoTerrainDesignations.AccessProgressStopFarming", "Stop automatic farming access", "Button to stop automatic farmland access work.");
+
+        public static LocStr AccessProgressStopConstruction =
+            Loc.Str("AutoTerrainDesignations.AccessProgressStopConstruction", "Stop construction access", "Button to stop access work for construction leveling.");
+
+        public static LocStr AccessProgressStop =
+            Loc.Str("AutoTerrainDesignations.AccessProgressStop", "Stop access planning", "Button to stop a generic access task.");
+
+        public static LocStr AccessProgressFarmingFill =
+            Loc.Str("AutoTerrainDesignations.AccessProgressFarmingFill", "farming filling access", "Type of access work for filling farmland.");
+
+        public static LocStr AccessProgressFarmingPrep =
+            Loc.Str("AutoTerrainDesignations.AccessProgressFarmingPrep", "farming preparation access", "Type of access work for preparing farmland.");
+
+        public static LocStr AccessProgressMining =
+            Loc.Str("AutoTerrainDesignations.AccessProgressMining", "interactive mining access", "Type of access work requested by a player.");
+
+        public static LocStr AccessProgressTower =
+            Loc.Str("AutoTerrainDesignations.AccessProgressTower", "planned tower access", "Type of access work for a planned tower.");
+
+        public static LocStr AccessProgressConstruction =
+            Loc.Str("AutoTerrainDesignations.AccessProgressConstruction", "construction leveling access", "Type of access work for construction leveling.");
+
+        public static LocStr AccessProgressTerrain =
+            Loc.Str("AutoTerrainDesignations.AccessProgressTerrain", "terrain access", "Type of generic terrain access work.");
+
+        public static LocStr AccessProgressSummary =
+            Loc.Str("AutoTerrainDesignations.AccessProgressSummary", "[ATD] {0}; finding {1}", "Access progress line. {0} is the phase, {1} is the kind of access work.");
+
+        public static LocStr AccessProgressCluster =
+            Loc.Str("AutoTerrainDesignations.AccessProgressCluster", "[ATD] Finding path {0}/{1}", "Access progress line. {0} is the current group and {1} is the group count.");
+
+        public static LocStr AccessProgressReplayStats =
+            Loc.Str("AutoTerrainDesignations.AccessProgressReplayStats", "Background recording · abort keeps placed terrain work", "Status text while a replay is recording.");
+
+        public static LocStr AccessProgressWorkerStats =
+            Loc.Str("AutoTerrainDesignations.AccessProgressWorkerStats", "visited {0:N0}/{1:N0} · queue {2:N0} · worker elapsed {3:0.0}/{4}s", "Progress counts and worker elapsed time.");
+
+        public static LocStr AccessProgressFrameStats =
+            Loc.Str("AutoTerrainDesignations.AccessProgressFrameStats", "visited {0:N0}/{1:N0} · queue {2:N0} · budget {3} ms/frame · processing {4:0.0}/{5}s", "Progress counts, frame time budget, and processing time.");
+
+        public static LocStr AccessProgressLegacyStats =
+            Loc.Str("AutoTerrainDesignations.AccessProgressLegacyStats", "visited {0:N0}/{1:N0} · queue {2:N0} · {3}/{4}s", "Progress counts and elapsed time in the older toast.");
+
+        public static LocStr AccessPhaseRecording =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseRecording", "Recording replay", "Progress phase while encoding a replay.");
+
+        public static LocStr AccessPhaseRecordingPercent =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseRecordingPercent", "Recording replay ({0})", "Replay recording progress. {0} is the percentage, including the percent sign.");
+
+        public static LocStr AccessPhaseCancelling =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseCancelling", "Cancelling replay capture", "Progress phase while cancelling a replay recording.");
+
+        public static LocStr AccessPhasePreparing =
+            Loc.Str("AutoTerrainDesignations.AccessPhasePreparing", "Preparing", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseCapturingTerrain =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseCapturingTerrain", "Capturing terrain", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseCapturingMine =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseCapturingMine", "Capturing mine terrain", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseCapturingSafety =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseCapturingSafety", "Capturing mine safety footprint", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhasePlanningMine =
+            Loc.Str("AutoTerrainDesignations.AccessPhasePlanningMine", "Planning mine", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseProjecting =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseProjecting", "Projecting designations", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseBuildingNavigation =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseBuildingNavigation", "Building navigation", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseFinalizingSnapshot =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseFinalizingSnapshot", "Finalizing snapshot", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseGroundRoutesV1 =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseGroundRoutesV1", "Building V1 ground routes", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseGoalPotentialV1 =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseGoalPotentialV1", "Building V1 goal potential", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseIndexingOccupied =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseIndexingOccupied", "Indexing occupied terrain", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseProjectingFixedV2 =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseProjectingFixedV2", "Projecting fixed V2 ground", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseFixedNavigationV2 =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseFixedNavigationV2", "Building V2 fixed navigation", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseConstructingSnapshot =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseConstructingSnapshot", "Constructing snapshot", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhasePreviousWorker =
+            Loc.Str("AutoTerrainDesignations.AccessPhasePreviousWorker", "Waiting for previous worker job to stop", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhasePreparingRequest =
+            Loc.Str("AutoTerrainDesignations.AccessPhasePreparingRequest", "Preparing search request", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhasePreparingSession =
+            Loc.Str("AutoTerrainDesignations.AccessPhasePreparingSession", "Preparing search session", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhasePreparingWorkspace =
+            Loc.Str("AutoTerrainDesignations.AccessPhasePreparingWorkspace", "Preparing search workspace", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseEvaluatingLegacy =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseEvaluatingLegacy", "Evaluating legacy access candidates", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseSearching =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseSearching", "Searching", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseCollectingGoals =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseCollectingGoals", "Collecting search goals", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseFinalizingSession =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseFinalizingSession", "Finalizing search session", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseSessionReady =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseSessionReady", "Search session ready", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseBuildingGoalIndex =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseBuildingGoalIndex", "Building goal distance index", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseClassifyingCleanupV2 =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseClassifyingCleanupV2", "Classifying V2 ground cleanup", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseGroundComponentsV2 =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseGroundComponentsV2", "Building V2 ground components", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseGroundPotentialV2 =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseGroundPotentialV2", "Building V2 ground potential", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseFrontierV2 =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseFrontierV2", "V2 frontier", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseGroundSuffix =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseGroundSuffix", "Ground suffix", "Terrain analysis progress phase.");
+
+        public static LocStr AccessPhaseHandoffs =
+            Loc.Str("AutoTerrainDesignations.AccessPhaseHandoffs", "Handoff entries", "Terrain analysis progress phase.");
+
+        // ------------------------------------------------------------------ //
         // Common levels
         // ------------------------------------------------------------------ //
         public static LocStr LevelOff  = Loc.Str("AutoTerrainDesignations.LevelOff",  "Off",  "Common level setting label: off/disabled.");

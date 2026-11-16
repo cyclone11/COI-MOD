@@ -71,11 +71,9 @@ namespace AutoTerrainDesignations
         // ------------------------------------------------------------------
 
         /// <summary>
-        /// Creates an "Ore composition" collapsible panel and inserts it into
-        /// mainBody at position 1 (below the ATD panel). The Refresh button reads
-        /// live ManagedDesignations, so the panel works independently of ATD scans.
+        /// 将可折叠的矿物组成面板追加到 ATD 面板列。刷新时直接读取矿塔当前的地形指令。
         /// </summary>
-        internal static void Inject(Column mainBody, PropertyInfo entityProp, object inspector)
+        internal static void Inject(Column atdPanels, PropertyInfo entityProp, object inspector)
         {
             try
             {
@@ -127,7 +125,7 @@ namespace AutoTerrainDesignations
                     .Tooltip(AtdLocalization.Tip(AtdLocalization.OreScanTip)));
 
                 orePanel.BodyAdd(contentCol);
-                mainBody.InsertAt(1, orePanel);
+                atdPanels.Add(orePanel);
             }
             catch (Exception ex)
             {
@@ -400,13 +398,13 @@ namespace AutoTerrainDesignations
             {
                 float v = value / 1_000_000f;
                 string fmt = v >= 100f ? "F0" : v >= 10f ? "F1" : "F2";
-                return v.ToString(fmt) + "M";
+                return string.Format(AtdLocalization.OreAmountMillions.TranslatedString, v.ToString(fmt));
             }
             if (value >= 1_000f)
             {
                 float v = value / 1_000f;
                 string fmt = v >= 100f ? "F0" : v >= 10f ? "F1" : "F2";
-                return v.ToString(fmt) + "k";
+                return string.Format(AtdLocalization.OreAmountThousands.TranslatedString, v.ToString(fmt));
             }
             {
                 string fmt = value >= 100f ? "F0" : value >= 10f ? "F1" : "F2";

@@ -872,11 +872,11 @@ namespace AutoTerrainDesignations
         {
             switch (value)
             {
-                case 0: return "Off";
-                case 1: return "Low";
-                case 2: return "Med";
-                case 3: return "High";
-                case 4: return "Max";
+                case 0: return AtdLocalization.LevelOff.TranslatedString;
+                case 1: return AtdLocalization.LevelLow.TranslatedString;
+                case 2: return AtdLocalization.LevelMed.TranslatedString;
+                case 3: return AtdLocalization.LevelHigh.TranslatedString;
+                case 4: return AtdLocalization.LevelMax.TranslatedString;
                 default: return value.ToString(CultureInfo.InvariantCulture);
             }
         }

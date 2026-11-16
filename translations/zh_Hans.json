@@ -17,7 +17,7 @@
   ],
   [
     "AutoTerrainDesignations.LevelOff",
-    "关"
+    "关闭"
   ],
   [
     "AutoTerrainDesignations.LevelLow",
@@ -33,7 +33,7 @@
   ],
   [
     "AutoTerrainDesignations.LevelMax",
-    "最大限度"
+    "最高"
   ],
   [
     "AutoTerrainDesignations.DesigTitle",
@@ -41,27 +41,27 @@
   ],
   [
     "AutoTerrainDesignations.DesigDescription",
-    "为矿塔自动生成采矿区。"
+    "为这座矿塔自动生成地形规划。"
   ],
   [
     "AutoTerrainDesignations.DesigCreateBtn",
-    "生成采矿区"
+    "生成采矿规划"
   ],
   [
     "AutoTerrainDesignations.DesigCreateTip",
-    "在矿塔范围内扫描并生成采矿区。"
+    "扫描矿塔范围内的矿层并放置采矿规划。"
   ],
   [
     "AutoTerrainDesignations.DesigDebrisTip",
-    "将碎片清除标记放置在可触及的未占用单元格上。按住 Ctrl 键单击以包含无法到达的碎片。按住 Shift 键并单击也可以替换现有的地形和林业名称。"
+    "让挖掘机清除可到达的障碍物。清理期间会暂时撤下原有规划，之后再恢复。此按钮不会消耗凝聚力执行快速移除，并遵循「允许通过整地移除障碍物」设置。按住 Ctrl 点击可一并处理无法到达的障碍物。"
   ],
   [
     "AutoTerrainDesignations.DesigClearTip",
-    "清除该塔由 ATD 生成的名称。按住 Shift 键并单击可清除塔区域内的所有地形指定。"
+    "清除由这座矿塔生成的地形规划和伐木标记。按住 Shift 点击，可清除矿塔范围内的全部地形规划，并清除由这座矿塔生成的伐木标记。"
   ],
   [
     "AutoTerrainDesignations.DesigClearTipWithShiftClick",
-    "清除该塔由 ATD 生成的名称。按住 Shift 键并单击可清除塔区域内的所有地形指定。"
+    "清除由这座矿塔生成的地形规划和伐木标记。按住 Shift 点击，可清除矿塔范围内的全部地形规划，并清除由这座矿塔生成的伐木标记。"
   ],
   [
     "AutoTerrainDesignations.DesigOreFilterAuto",
@@ -77,7 +77,7 @@
   ],
   [
     "AutoTerrainDesignations.DumpingPriorityDescription",
-    "使用原版导入优先级 1–15 进行主动倾倒；数字越小越紧急。被动模式使用原版被动倾倒，只从主动出口导入。在农田填充期间，只要倾倒规则限定为农用产品，被动模式会暂时使用主动优先级 14。默认值：被动。"
+    "主动倾倒采用原版的导入优先级 1–15，数字越小越优先。被动模式只接收主动外运点的物料。默认采用被动模式。农地表土始终使用主动倾倒。"
   ],
   [
     "AutoTerrainDesignations.DumpingPriorityPassiveLabel",
@@ -105,31 +105,31 @@
   ],
   [
     "AutoTerrainDesignations.AccesswayModeAutoTip",
-    "使用分配或预先分配给该塔的最大挖掘机，然后使用地图上存在的最大挖掘机。如果没有挖掘机，“自动”将表现为“关闭”。"
+    "优先按已分配或预分配给这座矿塔的最大规格挖掘机规划，其次按地图上现有的最大规格挖掘机规划。没有挖掘机时等同于关闭。"
   ],
   [
     "AutoTerrainDesignations.AccesswayModeT1Tip",
-    "使用 T1 挖掘机路径生成路由通道。"
+    "按 T1 挖掘机的通行要求生成车辆通路。"
   ],
   [
     "AutoTerrainDesignations.AccesswayModeT2Tip",
-    "使用 T2 挖掘机路径能力生成路由通道。"
+    "按 T2 挖掘机的通行要求生成车辆通路。"
   ],
   [
     "AutoTerrainDesignations.AccesswayModeT3Tip",
-    "使用 T3/Mega 挖掘机路径生成双车道路由通道。"
+    "按 T3／巨型挖掘机的通行要求生成双车道通路。"
   ],
   [
     "AutoTerrainDesignations.AccesswayModeLegacy3Tip",
-    "仅生成三个指定单元宽的传统直坡道，并针对 T3/Mega 挖掘机进行了验证。"
+    "仅生成宽 3 个规划格的旧式直坡道，并核验 T3／巨型挖掘机能否通过。"
   ],
   [
     "AutoTerrainDesignations.AccesswayModeLegacy4Tip",
-    "仅生成四个指定单元宽的传统直坡道，已针对 T3/Mega 挖掘机进行验证。"
+    "仅生成宽 4 个规划格的旧式直坡道，并核验 T3／巨型挖掘机能否通过。"
   ],
   [
     "AutoTerrainDesignations.AccesswayModeLegacy5Tip",
-    "仅生成宽度为 5 个指定单元的传统直坡道，并针对 T3/Mega 挖掘机进行了验证。"
+    "仅生成宽 5 个规划格的旧式直坡道，并核验 T3／巨型挖掘机能否通过。"
   ],
   [
     "AutoTerrainDesignations.DesigMaxLayersLabel",
@@ -197,7 +197,7 @@
   ],
   [
     "AutoTerrainDesignations.SettingsModName",
-    "自动地形指定"
+    "凯瑟的自动地形规划"
   ],
   [
     "AutoTerrainDesignations.SettingsTabDefaults",
@@ -221,7 +221,7 @@
   ],
   [
     "AutoTerrainDesignations.SettingsHeadingDesignations",
-    "指定"
+    "地形规划"
   ],
   [
     "AutoTerrainDesignations.SettingsHeadingScanPerformance",
@@ -357,11 +357,11 @@
   ],
   [
     "AutoTerrainDesignations.SettingsAllowRampsOutsideTowerAreasLabel",
-    "允许在塔楼区域外设置坡道"
+    "允许在矿塔范围外修建坡道"
   ],
   [
     "AutoTerrainDesignations.SettingsAllowRampsOutsideTowerAreasTooltip",
-    "If no V2 ramp can fit inside a tower area, retry within 16 tiles beyond its boundary. This fallback runs only after the in-area search fails and may trigger the game's normal outside-area alarm. Default: enabled."
+    "如果矿塔区域内的通路方案全部尝试后仍未找到出路，系统会在边界外最多 16 格的范围内重试。窄通路和 T3／巨型挖掘机通路都适用，搜索超时或因其他原因中断时不会重试。在范围外施工可能触发游戏的越界警报。默认开启。"
   ],
   [
     "AutoTerrainDesignations.SettingsSafetyPolicyTooltip",
@@ -401,11 +401,11 @@
   ],
   [
     "AutoTerrainDesignations.SettingsTerrainDesignationCostLabel",
-    "地形指定成本"
+    "地形规划成本"
   ],
   [
     "AutoTerrainDesignations.SettingsTerrainDesignationCostTooltip",
-    "对每个生成的地形指定收取固定成本。较高的值有利于较少的地形指定，即使这会增加行驶距离和总景观美化成本。"
+    "每个自动生成的地形规划格都会计入一笔固定成本。数值越高，寻路越倾向于少放规划格，即使绕路或总体土方量会增加。"
   ],
   [
     "AutoTerrainDesignations.SettingsDirectTerrainWorkWeightLabel",
@@ -413,7 +413,7 @@
   ],
   [
     "AutoTerrainDesignations.SettingsDirectTerrainWorkWeightTooltip",
-    "应用于在生成的地形名称正上方或下方挖掘或倾倒地形的重量。"
+    "调整在自动生成的地形规划格内进行挖掘和填土的成本权重。"
   ],
   [
     "AutoTerrainDesignations.SettingsSideRayWorkWeightLabel",
@@ -513,7 +513,7 @@
   ],
   [
     "AutoTerrainDesignations.SettingsMaxSlopeTooltip",
-    "相邻指定角点之间允许的最大高度差。范围：1-3。"
+    "相邻规划角点允许的最大高度差。范围为 1–3。"
   ],
   [
     "AutoTerrainDesignations.SettingsBottomFlatteningLabel",
@@ -537,7 +537,7 @@
   ],
   [
     "AutoTerrainDesignations.SettingsMiningPanelCollapsedTooltip",
-    "采矿指定面板是否默认以折叠状态开始。"
+    "控制「采矿规划」面板是否默认折叠。"
   ],
   [
     "AutoTerrainDesignations.SettingsOrePanelCollapsedLabel",
@@ -605,11 +605,11 @@
   ],
   [
     "AutoTerrainDesignations.SettingsCornerModeLabel",
-    "角点指定模式"
+    "拐角规划模式"
   ],
   [
     "AutoTerrainDesignations.SettingsCornerModeTooltip",
-    "当地形指定工具处于活动状态时，用于进入和切换角点指定模式的按键。"
+    "在使用地形规划工具时，用此快捷键进入拐角规划模式或切换拐角类型。"
   ],
   [
     "AutoTerrainDesignations.SettingsCornerModeInvalidTooltip",
@@ -793,7 +793,7 @@
   ],
   [
     "AutoTerrainDesignations.NotifRampSnapshotTooLarge",
-    "[ATD] {entity} 的访问区域过大，无法搜索转向坡道"
+    "[ATD] {entity} 的搜索范围过大，无法规划带转弯的坡道"
   ],
   [
     "AutoTerrainDesignations.NotifFarmingComplete",
@@ -805,11 +805,11 @@
   ],
   [
     "AutoTerrainDesignations.NotifDebrisCleanupNoneFound",
-    "[ATD] {entity} 发现没有需要清除的碎片"
+    "[ATD] {entity} 未发现需要清理的障碍物"
   ],
   [
     "AutoTerrainDesignations.NotifDebrisCleanupNoneReachable",
-    "[ATD] {entity} 发现没有可到达的碎片需要清除。按住 Ctrl 键单击以包含无法到达的碎片"
+    "[ATD] {entity} 未发现可到达的障碍物。按住 Ctrl 点击可包含无法到达的障碍物"
   ],
   [
     "AutoTerrainDesignations.EnqueueConfirmPromptSingular",
@@ -838,5 +838,245 @@
   [
     "AutoTerrainDesignations.OrderConstructionShortcutHint",
     "按住 Shift-Alt 键并单击即可在 {1} 为 {2} 订购新的 {0}"
+  ],
+  [
+    "AutoTerrainDesignations.ModVersionMarker",
+    "凯瑟的自动地形规划 v{0}"
+  ],
+  [
+    "AutoTerrainDesignations.Kb_Atd_CornerDesignationMode__label",
+    "拐角规划模式"
+  ],
+  [
+    "AutoTerrainDesignations.Kb_Atd_CornerDesignationMode__tooltip",
+    "进入拐角规划模式或切换拐角类型。"
+  ],
+  [
+    "AutoTerrainDesignations.ExcavatorFallbackName",
+    "挖掘机"
+  ],
+  [
+    "AutoTerrainDesignations.AccessAnalysisInProgress",
+    "[ATD] 正在分析地形"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressHide",
+    "隐藏"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressCancel",
+    "取消"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressAbortReplay",
+    "中止回放记录"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressStopMining",
+    "停止采矿通路规划"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressStopTower",
+    "停止规划中矿塔的通路搜索"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressStopFarming",
+    "停止自动农地通路规划"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressStopConstruction",
+    "停止施工通路规划"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressStop",
+    "停止通路规划"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressFarmingFill",
+    "农地填土通路"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressFarmingPrep",
+    "农地整平通路"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressMining",
+    "采矿通路"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressTower",
+    "规划中的矿塔通路"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressConstruction",
+    "施工整平通路"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressTerrain",
+    "地形通路"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressSummary",
+    "[ATD] {0} · 寻找{1}"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressCluster",
+    "[ATD] 正在寻找路线 {0}/{1}"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressReplayStats",
+    "后台记录中 · 中止记录会保留已放置的地形指令"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressWorkerStats",
+    "已访问节点 {0:N0}/{1:N0} · 队列 {2:N0} · 后台耗时 {3:0.0}/{4} 秒"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressFrameStats",
+    "已访问节点 {0:N0}/{1:N0} · 队列 {2:N0} · 每帧预算 {3} 毫秒 · 已处理 {4:0.0}/{5} 秒"
+  ],
+  [
+    "AutoTerrainDesignations.AccessProgressLegacyStats",
+    "已访问节点 {0:N0}/{1:N0} · 队列 {2:N0} · 耗时 {3}/{4} 秒"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseRecording",
+    "正在记录回放"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseRecordingPercent",
+    "正在记录回放（{0}）"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseCancelling",
+    "正在取消回放记录"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePreparing",
+    "正在准备"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseCapturingTerrain",
+    "正在采集地形"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseCapturingMine",
+    "正在采集矿区地形"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseCapturingSafety",
+    "正在采集矿区安全检查范围"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePlanningMine",
+    "正在规划采矿"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseProjecting",
+    "正在推算地形规划完成后的地貌"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseBuildingNavigation",
+    "正在构建导航数据"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseFinalizingSnapshot",
+    "正在完成地形快照"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseGroundRoutesV1",
+    "正在构建 V1 地面路线"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseGoalPotentialV1",
+    "正在估算 V1 目标距离"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseIndexingOccupied",
+    "正在索引已占用地形"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseProjectingFixedV2",
+    "正在推算 V2 固定地形"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseFixedNavigationV2",
+    "正在构建 V2 固定地形导航"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseConstructingSnapshot",
+    "正在构建地形快照"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePreviousWorker",
+    "正在等待上一项后台任务停止"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePreparingRequest",
+    "正在准备寻路请求"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePreparingSession",
+    "正在初始化寻路"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhasePreparingWorkspace",
+    "正在准备寻路工作区"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseEvaluatingLegacy",
+    "正在评估旧式坡道方案"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseSearching",
+    "正在寻路"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseCollectingGoals",
+    "正在收集寻路目标"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseFinalizingSession",
+    "正在完成寻路初始化"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseSessionReady",
+    "寻路准备完毕"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseBuildingGoalIndex",
+    "正在构建目标距离索引"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseClassifyingCleanupV2",
+    "正在识别 V2 地面清理需求"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseGroundComponentsV2",
+    "正在划分 V2 地面连通区"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseGroundPotentialV2",
+    "正在估算 V2 地面通路代价"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseFrontierV2",
+    "正在扩展 V2 搜索范围"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseGroundSuffix",
+    "正在搜索后半段地面路线"
+  ],
+  [
+    "AutoTerrainDesignations.AccessPhaseHandoffs",
+    "正在搜索路线衔接点"
+  ],
+  [
+    "AutoTerrainDesignations.OreAmountThousands",
+    "{0} 千"
+  ],
+  [
+    "AutoTerrainDesignations.OreAmountMillions",
+    "{0} 百万"
   ]
 ]

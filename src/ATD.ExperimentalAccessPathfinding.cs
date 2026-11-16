@@ -3242,20 +3242,20 @@ namespace AutoTerrainDesignations
                 int timeLimit = currentPolicy.SearchTimeoutSeconds;
                 var notification = s_uiRoot.ToastNotifProvider.m_notification;
                 notification.ShowGeneral(
-                    new LocStrFormatted("[ATD] Terrain analysis in progress"),
+                    AtdLocalization.AccessAnalysisInProgress.AsFormatted,
                     showForever: true);
                 var progressColumn = new Column()
                     .Width(TerrainAnalysisToastTextWidthPixels.px());
                 progressColumn.Add(
                     new Label(new LocStrFormatted(
-                        $"[ATD] Finding path {clusterIndex}/{clusterCount}"))
+                        string.Format(AtdLocalization.AccessProgressCluster.TranslatedString,
+                            clusterIndex, clusterCount)))
                         .FontSize(16)
                         .NoTextWrap()
                         .Width(TerrainAnalysisToastTextWidthPixels.px()),
                     new Label(new LocStrFormatted(
-                        $"visited {visitedNodes:N0}/{nodeLimit:N0} · "
-                        + $"queue {pendingNodes:N0} · "
-                        + $"{elapsedSeconds}/{timeLimit}s"))
+                        string.Format(AtdLocalization.AccessProgressLegacyStats.TranslatedString,
+                            visitedNodes, nodeLimit, pendingNodes, elapsedSeconds, timeLimit)))
                         .FontSize(14)
                         .NoTextWrap()
                         .Width(TerrainAnalysisToastTextWidthPixels.px()));
@@ -3263,12 +3263,12 @@ namespace AutoTerrainDesignations
                     progressColumn,
                     new ButtonText(
                         Button.General,
-                        new LocStrFormatted("Cancel"),
+                        AtdLocalization.AccessProgressCancel.AsFormatted,
                         () => s_cancelExperimentalAccessSearch = true)
                         .MarginLeft(8.pt()),
                     new ButtonText(
                         Button.General,
-                        new LocStrFormatted("Hide"),
+                        AtdLocalization.AccessProgressHide.AsFormatted,
                         HideTerrainAnalysisProgressToastUntilComplete)
                         .MarginLeft(8.pt()));
             }

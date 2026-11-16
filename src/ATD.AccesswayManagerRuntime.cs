@@ -224,34 +224,32 @@ namespace AutoTerrainDesignations
 
             try
             {
-                string workType = handle.Kind switch
+                LocStr workType = handle.Kind switch
                 {
-                    ATDAccesswayRequestKind.FarmingFilling
-                        => "farming filling access",
-                    ATDAccesswayRequestKind.FarmingPreparation
-                        => "farming preparation access",
-                    ATDAccesswayRequestKind.CreateDesignations
-                        => "interactive mining access",
-                    ATDAccesswayRequestKind.PlannedTower
-                        => "planned tower access",
-                    ATDAccesswayRequestKind.ConstructionLeveling
-                        => "construction leveling access",
-                    _ => "terrain access"
+                    ATDAccesswayRequestKind.FarmingFilling => AtdLocalization.AccessProgressFarmingFill,
+                    ATDAccesswayRequestKind.FarmingPreparation => AtdLocalization.AccessProgressFarmingPrep,
+                    ATDAccesswayRequestKind.CreateDesignations => AtdLocalization.AccessProgressMining,
+                    ATDAccesswayRequestKind.PlannedTower => AtdLocalization.AccessProgressTower,
+                    ATDAccesswayRequestKind.ConstructionLeveling => AtdLocalization.AccessProgressConstruction,
+                    _ => AtdLocalization.AccessProgressTerrain
                 };
                 bool captureMode = AccesswayProgressPresentation.IsReplayCapture(snapshot);
-                string stopWork = captureMode
-                    ? "Abort replay capture"
+                LocStr stopWork = captureMode
+                    ? AtdLocalization.AccessProgressAbortReplay
                     : handle.Kind switch
-                {
-                    ATDAccesswayRequestKind.CreateDesignations
-                        => "Stop interactive mining access",
-                    ATDAccesswayRequestKind.PlannedTower
-                        => "Stop planned tower access",
-                    _ => "Stop automatic farming access"
-                };
-                var progressText = new LocStrFormatted(
-                    captureMode ? $"[ATD] {snapshot.Phase}"
-                        : $"[ATD] {snapshot.Phase}; finding {workType}");
+                    {
+                        ATDAccesswayRequestKind.CreateDesignations => AtdLocalization.AccessProgressStopMining,
+                        ATDAccesswayRequestKind.PlannedTower => AtdLocalization.AccessProgressStopTower,
+                        ATDAccesswayRequestKind.FarmingFilling or ATDAccesswayRequestKind.FarmingPreparation
+                            => AtdLocalization.AccessProgressStopFarming,
+                        ATDAccesswayRequestKind.ConstructionLeveling => AtdLocalization.AccessProgressStopConstruction,
+                        _ => AtdLocalization.AccessProgressStop
+                    };
+                string phase = AccesswayProgressPresentation.FormatPhase(snapshot);
+                var progressText = new LocStrFormatted(captureMode
+                    ? $"[ATD] {phase}"
+                    : string.Format(AtdLocalization.AccessProgressSummary.TranslatedString,
+                        phase, workType.TranslatedString));
                 var statsText = new LocStrFormatted(
                     AccesswayProgressPresentation.FormatStats(
                         snapshot,
@@ -269,8 +267,7 @@ namespace AutoTerrainDesignations
                     || s_accesswayManagerStatsLabel == null)
                 {
                     notification.ShowGeneral(
-                        new LocStrFormatted(
-                            "[ATD] Terrain analysis in progress"),
+                        AtdLocalization.AccessAnalysisInProgress.AsFormatted,
                         showForever: true);
                     s_accesswayManagerProgressLabel =
                         new Label(progressText)
@@ -308,12 +305,12 @@ namespace AutoTerrainDesignations
                                     .ZoomToAccessActionTooltip.AsFormatted),
                         new ButtonText(
                             Button.General,
-                            new LocStrFormatted(stopWork),
+                            stopWork.AsFormatted,
                             () => manager.Cancel(handle, "UserCancelled"))
                             .MarginLeft(8.pt()),
                         new ButtonText(
                             Button.General,
-                            new LocStrFormatted("Hide"),
+                            AtdLocalization.AccessProgressHide.AsFormatted,
                             HideAccesswayManagerToastUntilComplete)
                             .MarginLeft(8.pt()));
                     s_accesswayManagerToastRequestId = handle.RequestId;

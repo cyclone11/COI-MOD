@@ -1,14 +1,14 @@
 {
   "atdTowerSettingsStateJson": {
     "default": "{\"schemaVersion\":1,\"towerSettings\":[]}",
-    "description": "Do not delete — required so the game registers the 'atdTowerSettingsStateJson' parameter, used to persist the mod tower settings within the vanilla save file."
+    "description": "内部存档数据：矿塔设置。"
   },
   "atdPendingVehicleAllocations": {
     "default": "{\"schemaVersion\":1,\"queues\":[],\"tickets\":[]}",
-    "description": "Internal saved state for pending ATD vehicle pre-allocation queues."
+    "description": "内部存档数据：待分配的车辆订单。"
   },
   "atdOreSorterExports": {
     "default": "{\"schemaVersion\":1,\"sorters\":[]}",
-    "description": "Internal saved state for ATD ore sorter export routes and assignments."
+    "description": "内部存档数据：矿石分选厂的外运路线和车辆分配。"
   }
 }

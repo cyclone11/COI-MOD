@@ -37,6 +37,10 @@ is included by mistake, I intend to correct it promptly upon discovery or notice
     <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2">
       <IncludeAssets>build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <!-- 本机没有 VS / .NET Framework 4.8 开发包：net48 编译需要引用程序集。
+         SDK 8 在缺少开发包时会自动补 Microsoft.NETFramework.ReferenceAssemblies，
+         这里显式固定版本（1.0.3）以便构建可复现；装了 Developer Pack 后可删除。 -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

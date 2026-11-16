@@ -233,9 +233,10 @@ namespace AutoTerrainDesignations.Access
                 executionBackend: ATDAccesswayExecutionBackend.Worker);
             string worker = AccesswayProgressPresentation.FormatStats(
                 workerSnapshot, 100000, 15, 120);
-            if (worker.Contains("budget")
-                || worker.Contains("processing")
-                || !worker.Contains("worker elapsed 26.5/120s"))
+            string expectedWorker = string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                AtdLocalization.AccessProgressWorkerStats.TranslatedString,
+                33380, 100000, 11203, 26.484d, 120);
+            if (worker != expectedWorker)
             {
                 failure = "Worker progress text exposes cooperative timing: "
                     + worker;
@@ -251,9 +252,10 @@ namespace AutoTerrainDesignations.Access
                 phase: "Searching");
             string cooperative = AccesswayProgressPresentation.FormatStats(
                 cooperativeSnapshot, 100000, 15, 120);
-            if (!cooperative.Contains("budget 15 ms/frame")
-                || !cooperative.Contains("processing 2")
-                || !cooperative.Contains("/120s"))
+            string expectedCooperative = string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                AtdLocalization.AccessProgressFrameStats.TranslatedString,
+                123, 100000, 45, 15, 2.5d, 120);
+            if (cooperative != expectedCooperative)
             {
                 failure = "Cooperative progress text lost slice diagnostics: "
                     + cooperative;
@@ -280,7 +282,8 @@ namespace AutoTerrainDesignations.Access
                 return false;
             }
             if (!AccesswayProgressPresentation.IsReplayCapture(recording)
-                || AccesswayProgressPresentation.FormatStats(recording, 100000, 15, 120).Contains("visited"))
+                || AccesswayProgressPresentation.FormatStats(recording, 100000, 15, 120)
+                    != AtdLocalization.AccessProgressReplayStats.TranslatedString)
             {
                 failure = "Background replay capture is presented as a path search.";
                 return false;
