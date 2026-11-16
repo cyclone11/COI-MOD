@@ -45,8 +45,8 @@ $manifest = Get-Content $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
 $packageId = if ($manifest.id) { [string]$manifest.id } else { 'AutoTerrainDesignations' }
 $packageVersion = if ($manifest.version) { [string]$manifest.version } else { 'dev' }
 
-$packageRootName = 'AutoTerrainDesignations'
-$zipPath = Join-Path $PSScriptRoot ("{0}-{1}.zip" -f $packageId, $packageVersion)
+$packageRootName = $packageId
+$zipPath = Join-Path (Split-Path -Parent $PSScriptRoot) ("{0}-{1}.zip" -f $packageId, $packageVersion)
 $packageRootDir = Join-Path $stagingDir $packageRootName
 
 # Archive old zip files
@@ -96,62 +96,75 @@ if (Test-Path $translationsDir) {
         Copy-Item -Destination $packageTranslationsDir -Force
 }
 
-if (Test-Path $zipPath) {
-    Remove-Item $zipPath -Force
-}
-
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 # ZIP entry names must use forward slashes.  Compress-Archive has historically
 # emitted Windows-style backslashes in some host/module combinations, which
 # makes the package fail to extract correctly with some Linux archive tools.
-$zipStream = [System.IO.File]::Open($zipPath, [System.IO.FileMode]::CreateNew)
+$pendingZipPath = Join-Path $artifactsDir ([Guid]::NewGuid().ToString('N') + '.zip')
 try {
-    $zip = [System.IO.Compression.ZipArchive]::new(
-        $zipStream,
-        [System.IO.Compression.ZipArchiveMode]::Create,
-        $false)
+    $zipStream = [System.IO.File]::Open($pendingZipPath, [System.IO.FileMode]::CreateNew)
     try {
-        Get-ChildItem -Path $stagingDir -File -Recurse | ForEach-Object {
-            $entryName = $_.FullName.Substring($stagingDir.Length).TrimStart('\', '/').
-                Replace('\', '/').
-                Replace([System.IO.Path]::AltDirectorySeparatorChar, '/')
-            $entry = $zip.CreateEntry($entryName, [System.IO.Compression.CompressionLevel]::Optimal)
-            $entryStream = $entry.Open()
-            try {
-                $sourceStream = [System.IO.File]::OpenRead($_.FullName)
+        $zip = [System.IO.Compression.ZipArchive]::new(
+            $zipStream,
+            [System.IO.Compression.ZipArchiveMode]::Create,
+            $true)
+        try {
+            Get-ChildItem -Path $stagingDir -File -Recurse | ForEach-Object {
+                $entryName = $_.FullName.Substring($stagingDir.Length).TrimStart('\', '/').
+                    Replace('\', '/').
+                    Replace([System.IO.Path]::AltDirectorySeparatorChar, '/')
+                $entry = $zip.CreateEntry($entryName, [System.IO.Compression.CompressionLevel]::Optimal)
+                $entryStream = $entry.Open()
                 try {
-                    $sourceStream.CopyTo($entryStream)
+                    $sourceStream = [System.IO.File]::OpenRead($_.FullName)
+                    try {
+                        $sourceStream.CopyTo($entryStream)
+                    }
+                    finally {
+                        $sourceStream.Dispose()
+                    }
                 }
                 finally {
-                    $sourceStream.Dispose()
+                    $entryStream.Dispose()
                 }
             }
-            finally {
-                $entryStream.Dispose()
-            }
+        }
+        finally {
+            $zip.Dispose()
         }
     }
     finally {
-        $zip.Dispose()
+        $zipStream.Dispose()
+    }
+
+    $readZip = [System.IO.Compression.ZipFile]::OpenRead($pendingZipPath)
+    try {
+        $invalidEntry = $readZip.Entries |
+            Where-Object { $_.FullName.Contains('\') } |
+            Select-Object -First 1
+        if ($invalidEntry) {
+            throw "Package contains a non-portable ZIP entry name: $($invalidEntry.FullName)"
+        }
+    }
+    finally {
+        $readZip.Dispose()
+    }
+
+    # Only replace the exact output package in the parent directory.
+    if (Test-Path -LiteralPath $zipPath -PathType Leaf) {
+        $backupName = "{0}-{1:yyyyMMdd-HHmmssfff}.zip" -f [IO.Path]::GetFileNameWithoutExtension($zipPath), [DateTime]::UtcNow
+        $backupZipPath = Join-Path $archiveDir $backupName
+        [IO.File]::Replace($pendingZipPath, $zipPath, $backupZipPath)
+        Write-Host "Archived: $backupName"
+    }
+    else {
+        [IO.File]::Move($pendingZipPath, $zipPath)
     }
 }
 finally {
-    $zipStream.Dispose()
-}
-
-$readZip = [System.IO.Compression.ZipFile]::OpenRead($zipPath)
-try {
-    $invalidEntry = $readZip.Entries |
-        Where-Object { $_.FullName.Contains('\') } |
-        Select-Object -First 1
-}
-finally {
-    $readZip.Dispose()
-}
-if ($invalidEntry) {
-    throw "Package contains a non-portable ZIP entry name: $($invalidEntry.FullName)"
+    [IO.File]::Delete($pendingZipPath)
 }
 
 Write-Host "Created package: $zipPath"

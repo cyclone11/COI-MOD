@@ -29,8 +29,8 @@ namespace AutoTerrainDesignations
         // Increment when a built-in setting default changes in a way that must
         // migrate an older generated settings file. This is separate from the
         // mod version because packages can be rebuilt without changing it.
-        // 6：三个 ATD 面板的默认折叠状态由 false/true 改为 true/true/true。
-        private const int SETTINGS_DEFAULTS_REVISION = 6;
+        private const int ALL_PANELS_COLLAPSED_DEFAULTS_REVISION = 6;
+        private const int SETTINGS_DEFAULTS_REVISION = 7;
 
         private static bool s_settingsLoadAttempted;
         private static string? s_loadedSettingsPath;
@@ -391,7 +391,7 @@ namespace AutoTerrainDesignations
                 json, "settingsDefaultsRevision") ?? 0;
             bool migrateGeneratedDefaults = forceMigration
                 || parsedVersion != AutoTerrainDesignationsMod.ModVersion
-                || parsedDefaultsRevision < SETTINGS_DEFAULTS_REVISION;
+                || parsedDefaultsRevision < ALL_PANELS_COLLAPSED_DEFAULTS_REVISION;
             try
             {
                 // Extract purityLevels object
@@ -478,8 +478,14 @@ namespace AutoTerrainDesignations
                     AutoTerrainDesignationsMod.SetMinCorridorClearance(corridorClearance.Value);
 
                 bool? terrainDesignationsPanelCollapsed = ParseBool(json, "terrainDesignationsPanelCollapsed");
-                if (terrainDesignationsPanelCollapsed.HasValue && ShouldPreserveBool(terrainDesignationsPanelCollapsed.Value, migrateGeneratedDefaults, false))
-                    AutoTerrainDesignationsMod.SetTerrainDesignationsPanelCollapsed(terrainDesignationsPanelCollapsed.Value);
+                if (terrainDesignationsPanelCollapsed.HasValue)
+                {
+                    // Revision 6 generated a collapsed mining panel. Migrate that default
+                    // without reapplying the other historical defaults to revision 6 files.
+                    AutoTerrainDesignationsMod.SetTerrainDesignationsPanelCollapsed(
+                        parsedDefaultsRevision != ALL_PANELS_COLLAPSED_DEFAULTS_REVISION
+                        && terrainDesignationsPanelCollapsed.Value);
+                }
 
                 bool? oreCompositionPanelCollapsed = ParseBool(json, "oreCompositionPanelCollapsed");
                 if (oreCompositionPanelCollapsed.HasValue && ShouldPreserveBool(oreCompositionPanelCollapsed.Value, migrateGeneratedDefaults, false))
@@ -1122,7 +1128,7 @@ namespace AutoTerrainDesignations
             sb.AppendLine("  \"_comment_minCorridorClearance\": \"Global default corridor clearance used when connecting separated ore components and enforcing passability. Each mine tower can override this individually via the inspector. 0 = disabled \u2014 components are left separate, no corridors or hole-filling (for vehicle-less excavation mods); 1 = 1-tile corridors (small and medium vehicles); 2 = 2-tile corridors (mega vehicles). Default: 2.\",");
             sb.AppendLine($"  \"minCorridorClearance\": {AutoTerrainDesignationsMod.MinCorridorClearance},");
             sb.AppendLine();
-            sb.AppendLine("  \"_comment_terrainDesignationsPanelCollapsed\": \"Default collapsed state for the Mining designations panel when a mine tower inspector is created. false = expanded by default, true = collapsed by default. Default: true.\",");
+            sb.AppendLine("  \"_comment_terrainDesignationsPanelCollapsed\": \"Default collapsed state for the Mining designations panel when a mine tower inspector is created. false = expanded by default, true = collapsed by default. Default: false.\",");
             sb.AppendLine($"  \"terrainDesignationsPanelCollapsed\": {BoolToJsonStr(AutoTerrainDesignationsMod.TerrainDesignationsPanelCollapsed)},");
             sb.AppendLine();
             sb.AppendLine("  \"_comment_oreCompositionPanelCollapsed\": \"Default collapsed state for the Ore composition panel when a mine tower inspector is created. false = expanded by default, true = collapsed by default. Default: true.\",");

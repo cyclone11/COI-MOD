@@ -1,5 +1,5 @@
 {
-  "id": "AutoTerrainDesignations",
+  "id": "AutoTerrainDesignations-test",
   "version": "0.10.2",
   "display_name": "凯瑟的自动地形规划",
   "description_short": "自动生成采矿规划，筛选矿石，修建车辆通路，准备农地，绘制拐角，管理车辆和分选厂外运，并支持无矿塔挖掘。",

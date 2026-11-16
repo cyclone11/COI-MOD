@@ -156,13 +156,14 @@ namespace AutoTerrainDesignations
                     var mainBody = mainBodyField.GetValue(__instance) as Column;
                     if (mainBody != null)
                     {
-                        // 三个 ATD 面板共享矿塔窗口的剩余高度，原版控件继续由 MainBody 布局。
-                        var atdPanels = new Column();
+                        var atdPanels = new Column(6.px()).AlignItemsStretch();
                         atdPanels.Add(DesignationPanel.Build(getTower, inspector));
                         OreCompositionPanel.Inject(atdPanels, entityProp, inspector);
                         FarmingAnalysisPanel.Inject(atdPanels, entityProp, inspector);
-                        MineTowerInspectorScrollArea.Insert(mainBody, atdPanels);
+                        mainBody.InsertAt(0, atdPanels);
                         mainBody.Show();
+                        if (__instance is Window window)
+                            MineTowerInspectorScrollArea.Install(window);
                         LogDebug("ATD, Ore composition, and farming analysis panels inserted");
                     }
                     else

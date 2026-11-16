@@ -139,8 +139,7 @@ public static string Tt(string text) => text;
         SetBottomFlatteningEnabled(true);
         SetBottomFlatteningStrength(5);
         SetMinCorridorClearance(2);
-        // 三个面板统一默认折叠，避免 ATD 面板挤压原版矿塔检查器的内容。
-        SetTerrainDesignationsPanelCollapsed(true);
+        SetTerrainDesignationsPanelCollapsed(false);
         SetOreCompositionPanelCollapsed(true);
         SetFarmingPanelCollapsed(true);
         SetExcavatorCompletionNotificationsEnabled(true);
@@ -285,8 +284,7 @@ public static string Tt(string text) => text;
     }
 
     /// <summary>Default collapsed state for the Mining designations inspector panel.</summary>
-    // 默认折叠（原为 false）：避免 ATD 的三个面板把原版段落挤下去。
-    public static bool TerrainDesignationsPanelCollapsed { get; private set; } = true;
+    public static bool TerrainDesignationsPanelCollapsed { get; private set; } = false;
 
     public static void SetTerrainDesignationsPanelCollapsed(bool value)
     {
