@@ -591,6 +591,14 @@ namespace AutoTerrainDesignations
             Loc.Str("AutoTerrainDesignations.FarmingToggleLabel", "Farmland preparation automation", "Label on the farming automation toggle.");
         public static LocStr FarmingToggleTip =
             Loc.Str("AutoTerrainDesignations.FarmingToggleTip", "Prepare flat level designations for farmland by clearing unsuitable top material, then restoring the final fill orders.", "Tooltip on the farming automation toggle.");
+        public static LocStr FarmingResetButtonTip =
+            Loc.Str("AutoTerrainDesignations.FarmingResetButtonTip", "Reset farmland preparation for this tower and restore its temporary designations. If automation is enabled, it will rescan after recovery.", "Tooltip on the reset button in the farmland preparation panel header.");
+        public static LocStr FarmingResetDone =
+            Loc.Str("AutoTerrainDesignations.FarmingResetDone", "Farmland preparation reset: restored {0}, skipped {1}, pending retry {2}.", "Farmland recovery status. {0} = restored designations, {1} = skipped designations, {2} = pending retries.");
+        public static LocStr FarmingResetNoSession =
+            Loc.Str("AutoTerrainDesignations.FarmingResetNoSession", "This tower has no farmland preparation session to reset.", "Shown when the selected tower has no farmland preparation session to reset.");
+        public static LocStr FarmingResetUnavailable =
+            Loc.Str("AutoTerrainDesignations.FarmingResetUnavailable", "Farmland preparation reset is currently unavailable.", "Shown when the selected tower or terrain designation tools are unavailable.");
         public static LocStr FarmingIdleReleaseExcavatorsLabel =
             Loc.Str("AutoTerrainDesignations.FarmingIdleReleaseExcavatorsLabel", "Auto-release excavators when idle", "Label on the auto-release excavators when idle toggle.");
         public static LocStr FarmingIdleReleaseExcavatorsTip =

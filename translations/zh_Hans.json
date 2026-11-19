@@ -1078,5 +1078,21 @@
   [
     "AutoTerrainDesignations.OreAmountMillions",
     "{0} 百万"
+  ],
+  [
+    "AutoTerrainDesignations.FarmingResetButtonTip",
+    "重置这座矿塔的农田准备，并还原临时规划。如果自动化已开启，恢复后会重新扫描。"
+  ],
+  [
+    "AutoTerrainDesignations.FarmingResetDone",
+    "农田准备已重置：已还原 {0} 块，已跳过 {1} 块，待重试 {2} 块。"
+  ],
+  [
+    "AutoTerrainDesignations.FarmingResetNoSession",
+    "这座矿塔当前没有可重置的农田准备任务。"
+  ],
+  [
+    "AutoTerrainDesignations.FarmingResetUnavailable",
+    "暂时无法重置农田准备。"
   ]
 ]

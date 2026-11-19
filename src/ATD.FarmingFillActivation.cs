@@ -72,6 +72,8 @@ namespace AutoTerrainDesignations
                 {
                     activated++;
                     originState.IsHiddenUntilFilling = false;
+                    originState.WasDesignationRemovedForFarming = false;
+                    originState.TemporaryDesignation = (s_dumpingProto, originState.OriginalData);
                     originState.IsFillingActivated = true;
                     originState.Phase = FarmingOriginPhase.Filling;
                     MarkPendingFillingAreaDirty(session);
@@ -233,13 +235,15 @@ namespace AutoTerrainDesignations
             if (s_desigManager == null || session.RimAlignmentOrigins.Count == 0)
                 return;
 
-            foreach (Tile2i origin in new List<Tile2i>(session.RimAlignmentOrigins))
+            // 玩家原有的堆填规划参与检查，但只删除模组实际放置的规划。
+            foreach (Tile2i origin in new List<Tile2i>(session.OwnedRimAlignmentOrigins))
             {
                 var current = s_desigManager.GetDesignationAt(origin);
                 if (current.HasValue && IsDumpingDesignation(current.Value))
                     s_desigManager.RemoveDesignation(origin);
             }
 
+            session.OwnedRimAlignmentOrigins.Clear();
             session.RimAlignmentOrigins.Clear();
             MarkPendingFillingAreaDirty(session);
         }
@@ -282,6 +286,7 @@ namespace AutoTerrainDesignations
                 {
                     placed++;
                     session.RimAlignmentOrigins.Add(rimOrigin);
+                    session.OwnedRimAlignmentOrigins.Add(rimOrigin);
                     MarkPendingFillingAreaDirty(session);
                 }
             }

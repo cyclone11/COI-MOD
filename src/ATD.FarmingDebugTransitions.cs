@@ -19,11 +19,15 @@ namespace AutoTerrainDesignations
         {
             public DesignationData OriginalData { get; }
             public int TargetHeight { get; }
+            public (TerrainDesignationProto Prototype, DesignationData Data) TemporaryDesignation { get; }
 
-            public FarmingDebugStoredDesignation(DesignationData originalData, int targetHeight)
+            public FarmingDebugStoredDesignation(
+                DesignationData originalData, int targetHeight,
+                TerrainDesignationProto temporaryProto, DesignationData temporaryData)
             {
                 OriginalData = originalData;
                 TargetHeight = targetHeight;
+                TemporaryDesignation = (temporaryProto, temporaryData);
             }
         }
 
@@ -91,11 +95,27 @@ namespace AutoTerrainDesignations
             if (!s_farmingDebugStoredDesignations.TryGetValue(origin, out FarmingDebugStoredDesignation stored))
                 return FormatFarmingDebugPrefix(origin) + "No stored Stage 2 original designation exists for this origin.";
 
-            if (!s_desigManager.AddOrReplaceDesignation(s_levelingProto, stored.OriginalData))
-                return FormatFarmingDebugPrefix(origin) + "Failed to restore original level designation. Stored data was kept.";
+            FarmingOriginRestoreResult result = TryRestoreDebugFarmingDesignation(origin, stored);
+            return FormatFarmingDebugPrefix(origin) + (result switch
+            {
+                FarmingOriginRestoreResult.Restored => $"Restored original level designation at target={stored.TargetHeight}.",
+                FarmingOriginRestoreResult.Skipped => "The temporary designation was changed or removed. Kept the current terrain orders.",
+                _ => "Failed to restore original level designation. Stored data was kept."
+            });
+        }
 
-            s_farmingDebugStoredDesignations.Remove(origin);
-            return FormatFarmingDebugPrefix(origin) + $"Restored original level designation target={stored.TargetHeight}.";
+        private static FarmingOriginRestoreResult TryRestoreDebugFarmingDesignation(
+            Tile2i origin, FarmingDebugStoredDesignation stored)
+        {
+            var originState = new FarmingOriginSession(origin, stored.OriginalData, stored.TargetHeight)
+            {
+                TemporaryDesignation = stored.TemporaryDesignation
+            };
+            FarmingOriginRestoreResult result = RestoreTrackedFarmingOrigin(originState);
+            if (result != FarmingOriginRestoreResult.Retry)
+                s_farmingDebugStoredDesignations.Remove(origin);
+
+            return result;
         }
 
         private static bool TryGetFarmingDebugContext(
@@ -174,14 +194,22 @@ namespace AutoTerrainDesignations
                 ? s_dumpingProto!
                 : s_levelingProto;
 
-            s_farmingDebugStoredDesignations[origin] = new FarmingDebugStoredDesignation(originalData, targetHeight);
             if (s_desigManager.AddOrReplaceDesignation(preparationProto, preparationData))
             {
+                if (session == null)
+                {
+                    s_farmingDebugStoredDesignations[origin] = new FarmingDebugStoredDesignation(
+                        originalData, targetHeight, preparationProto, preparationData);
+                }
+                else
+                {
+                    session.Origins[origin].TemporaryDesignation = (preparationProto, preparationData);
+                }
+
                 shoulderCount = PlaceFarmingPreparationShoulders(origin, preparationHeight, session);
                 return true;
             }
 
-            s_farmingDebugStoredDesignations.Remove(origin);
             shoulderCount = 0;
             return false;
         }

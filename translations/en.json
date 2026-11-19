@@ -1078,5 +1078,21 @@
   [
     "AutoTerrainDesignations.OreAmountMillions",
     "{0}M"
+  ],
+  [
+    "AutoTerrainDesignations.FarmingResetButtonTip",
+    "Reset farmland preparation for this tower and restore its temporary designations. If automation is enabled, it will rescan after recovery."
+  ],
+  [
+    "AutoTerrainDesignations.FarmingResetDone",
+    "Farmland preparation reset: restored {0}, skipped {1}, pending retry {2}."
+  ],
+  [
+    "AutoTerrainDesignations.FarmingResetNoSession",
+    "This tower has no farmland preparation session to reset."
+  ],
+  [
+    "AutoTerrainDesignations.FarmingResetUnavailable",
+    "Farmland preparation reset is currently unavailable."
   ]
 ]

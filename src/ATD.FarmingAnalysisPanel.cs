@@ -205,6 +205,9 @@ namespace AutoTerrainDesignations
 
                 contentCol.Add(automationToggle);
 
+                var resetStatusLabel = new Label(string.Empty).FontSize(11);
+                contentCol.Add(resetStatusLabel);
+
                 var idleReleaseExcavatorsToggle = new Toggle(standalone: true)
                     .Label(AtdLocalization.FarmingIdleReleaseExcavatorsLabel)
                     .ObserveValue(() =>
@@ -266,10 +269,30 @@ namespace AutoTerrainDesignations
                     if (t != null) AutoDepthDesignation.SetTowerFarmingPanelCollapsed(t, panel.IsCollapsed);
                 });
 
+                // 保留开关状态，通过与开关相同的恢复流程重置当前矿塔。
+                panel.Header.Add(new ButtonIcon(
+                    Button.General,
+                    Mafi.Unity.Assets.Unity.UserInterface.Toolbar.Sweep_svg,
+                    (Action)delegate
+                    {
+                        var tower = entityProp.GetValue(inspector) as IAreaManagingTower;
+                        if (tower == null)
+                            return;
+
+                        string report = AutoDepthDesignation.ResetFarmingSessionForTower(tower);
+                        Log.Info("[ATD Farming] " + report);
+                        resetStatusLabel.Value(report);
+                    })
+                    .Compact()
+                    .IconSize(14.px())
+                    .MarginLeft(4.pt())
+                    .Tooltip(AtdLocalization.Tip(AtdLocalization.FarmingResetButtonTip)));
+
                 s_resetContentCallbacks[inspector] = (Action)delegate
                 {
                     var tower = entityProp.GetValue(inspector) as IAreaManagingTower;
                     AutoDepthDesignation.EnsureFarmingAutomationDefaultEnabledForTower(tower);
+                    resetStatusLabel.Value(string.Empty);
                     automationToggle.Value(AutoDepthDesignation.IsFarmingAutomationEnabledForTower(tower));
                     idleReleaseExcavatorsToggle.Value(tower == null
                         ? AutoTerrainDesignationsMod.AutoReleaseExcavatorsWhenIdle

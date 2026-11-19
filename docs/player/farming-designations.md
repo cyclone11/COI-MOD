@@ -63,6 +63,8 @@ If the placement came from a blueprint, ATD holds the whole placement batch unti
 - If you manually remove or replace a tracked designation, the mod drops that tile from the session. Place a new flat level designation and the next scan will pick it up.
 - When extending a farming area adjacent to a previously completed area, the completed tiles are temporarily hidden to prevent dirt-spill conflicts with the new preparation work. They are restored together with the new tiles during the filling phase.
 - When extending a farming area, make sure new designations use the correct target height. If they do not match the adjacent area's height, new tiles may be treated as a separate session at the wrong elevation.
+- Turning farmland preparation off restores the tower's temporary orders where possible. Turning it back on retries any pending restorations before scanning again.
+- Use the **reset button** in the Farmland preparation panel header to restart its work while keeping the toggle as set. The reset preserves player edits and reports how many cells were restored, skipped, or need another try. With automation enabled, the tower resumes its scan after recovery.
 
 ## Settings
 
@@ -97,6 +99,7 @@ Open the in-game developer console (default: **F8** or **~**) to run these.
 | `atd_set_farming_panel_collapsed true\|false` | Sets whether the **Farmland preparation** panel starts collapsed by default. Change is saved to `ATDsettings.json`. |
 | `atd_farming_analyze_origin x y` | Prints the read-only farming analysis for the designation at tile (x, y). Coordinates snap to the 4×4 designation origin. Useful for checking why a tile is `Blocked` or `NeedsPreparation`. |
 | `atd_farming_dump_all` | Prints full session state and terrain analysis for every mine tower. Useful for a broad overview of what all towers are doing. |
+| `atd_farming_reset [x y]` | Performs the same recovery as the panel's reset button. Pass both coordinates to reset the tower covering that tile, or omit both to reset all towers with tracked origins. |
 
 The following commands are debug tools for single-origin testing, not intended for normal play:
 

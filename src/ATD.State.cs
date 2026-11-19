@@ -667,6 +667,14 @@ namespace AutoTerrainDesignations
                     session.PreparationAccessRampOrigins.Remove(origin);
                 bool fillingRemoved =
                     session.FillingAccessRampOrigins.Remove(origin);
+                // 手动替换或删除后，后续农田清理不能再把这些规划视为模组所有。
+                bool shoulderRemoved = session.PreparationShoulderOrigins.Remove(origin);
+                bool rimRemoved = session.RimAlignmentOrigins.Remove(origin);
+                session.OwnedRimAlignmentOrigins.Remove(origin);
+                session.FutureRimDebrisCleanupOrigins.Remove(origin);
+                if (shoulderRemoved || rimRemoved)
+                    MarkPendingFillingAreaDirty(session);
+
                 if (!preparationRemoved && !fillingRemoved)
                     continue;
                 session.LastAccessRampRequestKey = string.Empty;

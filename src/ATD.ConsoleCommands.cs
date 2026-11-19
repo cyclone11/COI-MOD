@@ -516,6 +516,12 @@ public sealed class AtdConsoleCommands
         return AutoDepthDesignation.RestoreFarmingOriginForDebug(x, y);
     }
 
+    [ConsoleCommand(false, false, "Resets a tower's farming preparation while preserving player changes. Pass both x and y to target one tower, or neither to reset every tower with tracked farming origins.", "atd_farming_reset")]
+    private string atdFarmingReset(int? x = null, int? y = null)
+    {
+        return AutoDepthDesignation.ResetFarmingSessionsForDebug(x, y);
+    }
+
     [ConsoleCommand(false, false, "Resets ATD global settings to built-in defaults in memory only. Use atd_save_settings to write them to ATDsettings.json.", null)]
     private string atdResetToDefaults()
     {
